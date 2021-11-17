@@ -1,7 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import { isArrayEmpty } from './Utils';
 import BlogCard from './BlogCard';
-function App() {
+import React, {Component} from 'react';
+
+class App extends Component {
+  state = {
+    showBlogs: true
+  }
+
+
+
+
+
   // const firstName = 'Kirit';
   // const lastName = 'Pendyala';
   // const age = 27;
@@ -15,7 +26,7 @@ function App() {
   //   age: 27 
   // }
 
-  const biodata = [
+    biodata = [
     {
       id: 1,
       firstName:  'Kirit',
@@ -39,7 +50,10 @@ function App() {
     }
   ]
 
-  const blogCards = biodata.map((item, pos) => { 
+
+  // showBlogs = true;
+
+   blogCards = isArrayEmpty(this.biodata) ? [] : this.biodata.map((item, pos) => { 
     // console.log(item);
      
     return (
@@ -53,15 +67,28 @@ function App() {
       // </div>
     )
   })
-  
-  return (
-    <div className="App">
 
-      {blogCards}
-      
-      
+   onHideBtnClick =() =>{
+    // this.showBlogs = false;
+    // this.setState({showBlogs:false});
+    let updatedState = !this.state.showBlogs;
+    this.setState({showBlogs: updatedState});
+    console.log(this.showBlogs);
+  }
+  
+  render(){
+    return(
+      <div className="App">
+      <button onClick={this.onHideBtnClick}>  Hide List </button>
+      <br></br>
+      {
+        this.state.showBlogs ? this.blogCards : null
+      }
     </div>
-  );
+    )
+  }
+
+
 }
 
 export default App;
