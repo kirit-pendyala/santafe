@@ -54,7 +54,7 @@ const BlogCard = (props) => {
             <p>{props.Hobby}</p>
 
             <p> Like Count: <span className={classes.LikeCount}> {props.likeCount} </span></p>
-            <button onClick={() =>props.onLikeBtnClick(props.position)}>Like </button>
+            <button onClick={props.onLikeBtnClick}>Like </button>
         </div>
     )
 }

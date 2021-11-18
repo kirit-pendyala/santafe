@@ -68,8 +68,8 @@ class App extends Component {
 
       <BlogCard key={pos} firstName={item.firstName} lastName={item.lastName} 
                           Hobby={item.Hobby} likeCount={item.likeCount} id={item.id}
-                          onLikeBtnClick={this.onLikeBtnClick}
-                          position={pos}/> 
+                          onLikeBtnClick={() => this.onLikeBtnClick(pos)}
+                          /> 
       // <div className="BlogCard" key={item.id}>
       //   <h3>{item.firstName}</h3>
       //   <p>{item.lastName}</p>
